@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Top Places to Eat in New York</title>
+    <style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		#title {
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 20px;
+			z-index: 5;
+			width: 800px;
+			font-family: 'Helvetica Neue', 'Helvetica', 'sans-serif';
+			font-weight: 300;
+			font-size: 25px;
+			text-align: center;
+			background-color: rgba(255,255,255,0.8);
+			border-radius: 0 0 20px 20px;
+			box-shadow: 0 0 5px rgba(0,0,0,0.5);
+		}
+		#map_canvas {
+		    margin: 0;
+			padding: 0;
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		  .map {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 50%;
+			width: 50%;
+			overflow: hidden;
+		  }
+		  .map {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 50%;
+			width: 50%;
+			overflow: hidden;
+		  }
+		body {
+		   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		   font-weight: 300;
+		}
+		
+		body
+	</style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+
+      function initialize() {
+        var mapOptions = {
+          zoom: 11,
+          center: new google.maps.LatLng(40.7142, -74.0064),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+		
+		var styles = [
+  {
+    stylers: [
+      { hue: "#007FFF" },
+      { saturation: 100 }
+    ]
+  },{
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+      { hue: "#B31B1B" },
+	  { lightness: 40 },
+      { visibility: "simplified" }
+    ]
+  },{
+    featureType: "road",
+    elementType: "labels",
+    stylers: [
+		{ hue: "#960018" },
+      { visibility: "simplified" }
+    ]
+  }
+];
+
+map.setOptions({styles: styles});
+        
+        // These next two lines show how to include a KML layer in your web map.
+        // Hint:  Place your KML file on your BOL webspace, and refer to it from the line defining the 
+        //        variable
+       	var colonias = new google.maps.KmlLayer('http://nanhed23.bol.ucla.edu/ny.kmz');
+		colonias.setMap(map);
+      }
+	  
+	  
+    </script>
+	
+
+  </head>
+  <body onload="initialize()">
+  	<div id="title">Top Places to Eat in New York</div>
+    <div id="map_canvas"></div>
+	
+	
+
+</head>
+
+
+
+<body>
+  </body>
+  </html>
+  

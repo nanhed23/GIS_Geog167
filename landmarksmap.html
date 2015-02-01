@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Top Landmarks to Visit in New York</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
+    <style>
+    html, body, #map-canvas {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    
+    #title {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      z-index: 5;
+      width: 800px;
+      font-family: 'Helvetica Neue', 'Helvetica', 'sans-serif';
+      font-weight: 300;
+      font-size: 25px;
+      text-align: center;
+      background-color: rgba(255,255,255,0.8);
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+    #map_canvas {
+        margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+      .map {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 50%;
+      width: 50%;
+      overflow: hidden;
+      }
+      .map {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 50%;
+      width: 50%;
+      overflow: hidden;
+      }
+    body {
+       font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+       font-weight: 300;
+    }
+    
+    body
+    
+      #legend {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+      }
+      #legend h3 {
+        margin-top: 0;
+      }
+      #legend img {
+        vertical-align: middle;
+      }
+    </style>
+
+    <script>
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(40.7142, -74.0064),
+          zoom: 13,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+      
+          var styles = [
+  {
+    stylers: [
+      { hue: "#007FFF" },
+      { saturation: 100 }
+    ]
+  },{
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+      { hue: "#B31B1B" },
+    { lightness: 40 },
+      { visibility: "simplified" }
+    ]
+  },{
+    featureType: "road",
+    elementType: "labels",
+    stylers: [
+    { hue: "#960018" },
+      { visibility: "simplified" }
+    ]
+  }
+];
+
+map.setOptions({styles: styles});
+        var iconBase = 'http://maps.google.com/mapfiles/kml/pal2/';
+        var icons = {
+          parking: {
+            name: 'Parking',
+            icon: iconBase + 'icon13.png',
+            shadow: iconBase + 'icon13.png'
+          }
+        };
+
+        function addMarker(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            shadow: {
+              url: icons[feature.type].shadow,
+              anchor: new google.maps.Point(16, 34)
+            },
+            map: map
+          });
+        }
+
+        var features = [
+           {
+            position: new google.maps.LatLng(40.781033, -73.974174), 
+            type: 'parking' //American Museum of Natural History 
+          }, {
+            position: new google.maps.LatLng(40.7820, -73.9660),
+            type: 'parking' //Central Park
+          }, {
+            position: new google.maps.LatLng(40.6996, -74.0396),
+            type: 'parking' //Ellis Island Immigration Museum 
+          }, {
+            position: new google.maps.LatLng(40.7484, -73.9847),
+            type: 'parking' //Empire State Building
+          }, {
+            position: new google.maps.LatLng(40.7530, -73.9770),
+            type: 'parking' //Grand Central Terminal 
+          }, {
+            position: new google.maps.LatLng(40.77891, -73.96367),
+            type: 'parking' //Metropolitan Museum of Art 
+          }, {
+            position: new google.maps.LatLng(40.7589, -73.9792),
+            type: 'parking' //Rockefeller Center 
+          }, {
+            position: new google.maps.LatLng(40.576281, -74.144839),
+            type: 'parking' //Staten Island Ferry
+          }, {
+            position: new google.maps.LatLng(40.6893, -74.0446),
+            type: 'parking' //Statue of Liberty 
+          }, {
+            position: new google.maps.LatLng(40.761484, -73.977664),
+            type: 'parking' //The Museum of Modern Art (MoMA)  
+          }, {
+            position: new google.maps.LatLng(40.7566, -73.9863),
+            type: 'parking' //Times Square  
+          }, {
+            position: new google.maps.LatLng(40.7063, -73.9971),
+            type: 'parking' //Brooklyn Bridge  
+          }, {
+            position: new google.maps.LatLng(40.7522, -73.9755),
+            type: 'parking' //Chrysler Building  
+          }, {
+            position: new google.maps.LatLng(40.7117, -74.0125),
+            type: 'parking' //World Trade Center 
+          }, {
+            position: new google.maps.LatLng(40.711694, -74.013611),
+            type: 'parking' //9/11 Memorial  
+          }, {
+            position: new google.maps.LatLng(40.7064, -74.0094),
+            type: 'parking' //Wall Street  
+          }, {
+            position: new google.maps.LatLng(40.7411, -73.9897),
+            type: 'parking' //Flatiron Building  
+          }, {
+            position: new google.maps.LatLng(40.7183, -74.0025),
+            type: 'parking' //Chinatown 
+          }, {
+            position: new google.maps.LatLng(40.7505, -73.9935),
+            type: 'parking' //Madison Square 
+          }, {
+            position: new google.maps.LatLng(40.7542, -73.9846),
+            type: 'parking' //Bryant Park   
+          }, {
+            position: new google.maps.LatLng(40.7483, -74.0050),
+            type: 'parking' //High Line 
+          }, {
+            position: new google.maps.LatLng(40.7308, -73.9975),
+            type: 'parking' //Washington Square  
+          }, {
+            position: new google.maps.LatLng(40.5744, -73.9786),
+            type: 'parking' //Coney Island 
+          }, {
+            position: new google.maps.LatLng(40.719141, -73.997327),
+            type: 'parking' //Little Italy  
+          }, {
+            position: new google.maps.LatLng(40.7122, -74.0081),
+            type: 'parking' //Woolworth Building  
+          }, {
+            position: new google.maps.LatLng(40.7585, -73.9761),
+            type: 'parking' //St. Patrick's Cathedral   
+          }, {
+            position: new google.maps.LatLng(40.8126, -73.9630),
+            type: 'parking' //Grant's Tomb  
+          }, {
+            position: new google.maps.LatLng(40.782975, -73.958992),
+            type: 'parking' //Guggenheim Museum 
+      }, {
+            position: new google.maps.LatLng(40.7625, -73.974167),
+            type: 'parking' //Trump Tower  
+          }, {
+            position: new google.maps.LatLng(40.753333, -73.976667),
+            type: 'parking' //Metlife Building 
+          }, {
+            position: new google.maps.LatLng(40.706111, -74.003333),
+            type: 'parking' //South Street Seaport   
+          }, {
+            position: new google.maps.LatLng(40.7127, -74.0059),
+            type: 'parking' //City Hall    
+          }, {
+            position: new google.maps.LatLng(40.758533, -73.970314),
+            type: 'parking' //Citygroup Center     
+          }, {
+            position: new google.maps.LatLng(40.706964, -74.009672),
+            type: 'parking' //40 Wall Street     
+          }, {
+            position: new google.maps.LatLng(40.75297, -73.98397),
+            type: 'parking' //American Radiator Building     
+          }, {
+            position: new google.maps.LatLng(40.723056, -74.000833),
+            type: 'parking' //SoHo    
+          }, {
+            position: new google.maps.LatLng(40.703717, -74.016094),
+            type: 'parking' //Battery Park    
+          }, {
+            position: new google.maps.LatLng(40.767997, -73.981934),
+            type: 'parking' //Columbus Circle     
+          }, {
+            position: new google.maps.LatLng(40.7587, -73.9727),
+            type: 'parking' //Seagram Building    
+          }, {
+            position: new google.maps.LatLng(40.705556, -74.0175),
+            type: 'parking' //Skyscraper Museum 
+          }, {
+            position: new google.maps.LatLng(40.808889, -73.961667),
+            type: 'parking' //Columbia University    
+          }, 
+        ];
+
+        for (var i = 0, feature; feature = features[i]; i++) {
+          addMarker(feature);
+        }
+    
+        var input = document.getElementById('searchTextField');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map
+        });
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          input.className = '';
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // Inform the user that the place was not found and return.
+            input.className = 'notfound';
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(11);  
+          }
+          var image = {
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+          };
+          marker.setIcon(image);
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+          infowindow.open(map, marker);
+        });
+
+        // Sets a listener on a radio button to change the filter type on Places
+        // Autocomplete.
+        function setupClickListener(id, types) {
+          var radioButton = document.getElementById(id);
+          google.maps.event.addDomListener(radioButton, 'click', function() {
+            autocomplete.setTypes(types);
+          });
+        }
+
+        setupClickListener('changetype-all', []);
+        setupClickListener('changetype-establishment', ['establishment']);
+        setupClickListener('changetype-geocode', ['geocode']);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <div>
+      <input id="searchTextField" type="text" size="50">
+      <input type="radio" name="type" id="changetype-all" checked="checked">
+      <label for="changetype-all">All</label>
+
+      <input type="radio" name="type" id="changetype-establishment">
+      <label for="changetype-establishment">Establishments</label>
+
+      <input type="radio" name="type" id="changetype-geocode">
+      <label for="changetype-geocode">Geocodes</lable>
+    </div>
+      <div id="title">Top Landmarks to Visit in New York</div>
+    <div id="map-canvas"></div>
+  </body>
+</html>
